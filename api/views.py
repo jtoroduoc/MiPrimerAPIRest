@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User, Group
+from inventario.models import Producto
 from rest_framework import viewsets
 from rest_framework import permissions
-from .Serielizers import UserSerializer, GroupSerializer
+from .Serielizers import UserSerializer, GroupSerializer, ProductoSerializer
 
 
 # Create your views here.
@@ -10,7 +11,12 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-class GorupViewSet(viewsets.ModelViewSet):
+class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
     permission_classes = [permissions.IsAuthenticated]

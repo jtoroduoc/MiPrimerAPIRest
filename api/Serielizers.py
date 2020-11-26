@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, Group
+from inventario.models import Producto
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -10,3 +11,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
         fields = ['url', 'name']
+
+class ProductoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Producto
+        fields = ['codigo', 'marca', 'modelo']
